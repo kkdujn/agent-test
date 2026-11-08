@@ -16,16 +16,4 @@ agent = create_agent(model, tools=[tavily_tool])
 if "messages" not in st.session_state :
     st.session_state.messages = []
 
-st.title("우리 회사 챗봇")
-
-prompt = st.chat_input("여기에 입력하시오.")
-if prompt:
-    response = agent.invoke(
-        {"messages" : [{"role" : "user", "content" : prompt}]}
-    )
-    st.session_state.messages.append({'role' : "user", 'content' : prompt})
-    st.session_state.messages.append({'role' : "ai", 'content' : response['messages'][-1].content})
-
-for message in st.session_state.messages :
-    with st.chat_message(message['role']) :
-        st.write(message['content'])
+st.title("영어 학원 평가 도우미")
