@@ -206,7 +206,7 @@ with st.sidebar:
 
 
 # 메인 화면
-st.title("영어 모의고사 평가 도우미")
+st.title("영어 학원 평가 도우미")
 
 report = st.session_state.report
 
