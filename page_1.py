@@ -1,19 +1,26 @@
+
 import streamlit as st
-from langchain_tavily import TavilySearch
-from langchain.agents import create_agent
-from langchain.chat_models import init_chat_model
 
-model = init_chat_model("gpt-5.4-mini")
+# 화면 중앙에 배치하기 위한 여백
+st.markdown("<div style='height: 100px;'></div>",
+            unsafe_allow_html=True)
 
-tavily_tool = TavilySearch(
-    max_results=5,
-    topic="general",
+# 가천대학교 로고 중앙 정렬
+left, center, right = st.columns([2,2,2])
+
+with center:
+    st.image("gachon_logo.jpg", use_container_width=True)
+
+# 로고와 제목 사이 간격
+st.markdown("<div style='height: 50px;'></div>",
+            unsafe_allow_html=True)
+
+# 학원 이름
+st.markdown(
+    """
+    <h2 style='text-align: center;'>
+        영어 학원 평가 도우미
+    </h2>
+    """,
+    unsafe_allow_html=True
 )
-
-agent = create_agent(model, tools=[tavily_tool])
-
-
-if "messages" not in st.session_state :
-    st.session_state.messages = []
-
-st.title("영어 학원 평가 도우미")

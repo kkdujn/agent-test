@@ -1,6 +1,5 @@
 import streamlit as st 
 from dotenv import load_dotenv
-from page_2 import analyze_files, make_excel
 
 load_dotenv()
 
